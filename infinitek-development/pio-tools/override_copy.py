@@ -21,9 +21,9 @@ project_dir = os.path.normpath(env["PROJECT_DIR"])
 if " " in project_dir:
     print(Fore.RED + "*** Whitespace(s) in project path, unexpected issues/errors can happen ***")
 
-# copy Infinitek/user_config_override_sample.h to Infinitek/user_config_override.h
-uc_override = pathlib.Path(os.path.normpath("Infinitek/user_config_override.h"))
-uc_override_sample = pathlib.Path(os.path.normpath("Infinitek/user_config_override_sample.h"))
+# copy infinitek/user_config_override_sample.h to infinitek/user_config_override.h
+uc_override = pathlib.Path(os.path.normpath("infinitek/user_config_override.h"))
+uc_override_sample = pathlib.Path(os.path.normpath("infinitek/user_config_override_sample.h"))
 if uc_override.is_file():
     print(Fore.GREEN + "*** use provided user_config_override.h as planned ***")
 else:
@@ -37,9 +37,9 @@ if pio_override.is_file():
 else:
     shutil.copy(str(pio_override_sample), str(pio_override))
 
-# copy platformio_Infinitek_cenv_sample.ini to platformio_Infinitek_cenv.ini
-pio_cenv = pathlib.Path(os.path.normpath("platformio_Infinitek_cenv.ini"))
-pio_cenv_sample = pathlib.Path(os.path.normpath("platformio_Infinitek_cenv_sample.ini"))
+# copy platformio_infinitek_cenv_sample.ini to platformio_infinitek_cenv.ini
+pio_cenv = pathlib.Path(os.path.normpath("platformio_infinitek_cenv.ini"))
+pio_cenv_sample = pathlib.Path(os.path.normpath("platformio_infinitek_cenv_sample.ini"))
 if pio_cenv.is_file():
     print(Fore.GREEN + "*** use provided platformio_Infinitek_cenv.ini as planned ***")
 else:
