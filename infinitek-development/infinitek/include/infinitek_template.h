@@ -1568,7 +1568,7 @@ typedef struct MYTMPLT {
 //********************************************************************************************
 
 #ifdef ESP8266
-#include "include/Infinitek_template_legacy.h"
+#include "include/infinitek_template_legacy.h"
 
 /********************************************************************************************\
  * ESP8266 Module Templates

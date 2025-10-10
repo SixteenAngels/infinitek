@@ -21,16 +21,16 @@
 #if __has_include("core_version.h")         // ESP32 Stage has no core_version.h file. Disable include via PlatformIO Option
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_7_1)
 #endif  // ESP32_STAGE
-#include "include/Infinitek_compat.h"
-#include "include/Infinitek_version.h"        // Infinitek version information
-#include "include/Infinitek.h"                // Enumeration used in my_user_config.h
+#include "include/infinitek_compat.h"
+#include "include/infinitek_version.h"        // Infinitek version information
+#include "include/infinitek.h"                // Enumeration used in my_user_config.h
 #include "my_user_config.h"                 // Fixed user configurable options
 #ifdef USE_TLS
 #include <t_bearssl.h>                      // We need to include before "Infinitek_globals.h" to take precedence over the BearSSL version in Arduino
 #endif  // USE_TLS
-#include "include/Infinitek_globals.h"        // Function prototypes and global configuration
+#include "include/infinitek_globals.h"        // Function prototypes and global configuration
 #include "include/i18n.h"                   // Language support configured by my_user_config.h
-#include "include/Infinitek_template.h"       // Hardware configuration
+#include "include/infinitek_template.h"       // Hardware configuration
 
 // ------------------------------------------------------------------------------------------
 // If IPv6 is not support by the underlying esp-idf, disable it
@@ -71,52 +71,74 @@
 #endif  // USE_SPI
 
 // --- Sensor Libraries ---
-#if USE_DHT11 || USE_DHT22
+#if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
 #include <DHT.h>
 #endif
-#if USE_BME280
+#if defined(USE_BME280) || defined(USE_BMP)
 #include <Adafruit_BME280.h>
 #endif
-#if USE_BMP280
+#if defined(USE_BMP280) || defined(USE_BMP)
 #include <Adafruit_BMP280.h>
 #endif
-#if USE_BME680
+#if defined(USE_BME680) || defined(USE_BME68X)
 #include <Adafruit_BME680.h>
 #endif
-#if USE_SHT3X
+#if defined(USE_SHT3X)
 #include <SHT3x.h>
 #endif
-#if USE_SHT4X
+#if defined(USE_SHT4X)
 #include <SHT4x.h>
 #endif
-#if USE_CCS811
+#if defined(USE_CCS811) || defined(USE_CCS811_V2)
 #include <Adafruit_CCS811.h>
 #endif
-#if USE_SGP30
+#if defined(USE_SGP30)
 #include <Adafruit_SGP30.h>
 #endif
-#if USE_SCD30
+#if defined(USE_SCD30)
 #include <FrogmoreScd30.h>
 #endif
-#if USE_MHZ19
+#if defined(USE_MHZ19)
 #include <MHZ19.h>
 #endif
-#if USE_PMS5003
+#if defined(USE_PMS5003)
 #include <PMS.h>
 #endif
 
 // --- Sensor Instances ---
+#if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
 DHT dht;
+#endif
+#if defined(USE_BME280) || defined(USE_BMP)
 Adafruit_BME280 bme280;
+#endif
+#if defined(USE_BMP280) || defined(USE_BMP)
 Adafruit_BMP280 bmp280;
+#endif
+#if defined(USE_BME680) || defined(USE_BME68X)
 Adafruit_BME680 bme680;
+#endif
+#if defined(USE_SHT3X)
 SHT3x sht3x;
+#endif
+#if defined(USE_SHT4X)
 SHT4x sht4x;
+#endif
+#if defined(USE_CCS811) || defined(USE_CCS811_V2)
 Adafruit_CCS811 ccs811;
+#endif
+#if defined(USE_SGP30)
 Adafruit_SGP30 sgp30;
+#endif
+#if defined(USE_SCD30)
 FrogmoreScd30 scd30;
+#endif
+#if defined(USE_MHZ19)
 MHZ19 mhz19;
+#endif
+#if defined(USE_PMS5003)
 PMS pms(Serial);
+#endif
 
 #ifdef USE_UFILESYS
 #ifdef ESP8266
@@ -154,7 +176,7 @@ PMS pms(Serial);
 #endif  // ESP32
 
 // Structs
-#include "include/Infinitek_types.h"
+#include "include/infinitek_types.h"
 
 /*********************************************************************************************\
  * Global variables
@@ -396,7 +418,7 @@ struct InfinitekGlobal_t {
   uint8_t led_inverted;                     // LED inverted flag (1 = (0 = On, 1 = Off))
   uint8_t led_power;                        // LED power state
   uint8_t ledlnk_inverted;                  // Link LED inverted flag (1 = (0 = On, 1 = Off))
-  uint8_t pwm_inverted;                     // PWM inverted flag (1 = inverted)
+  // uint8_t pwm_inverted;                  // duplicate of 16-bit field above; remove to avoid redefinition
   uint8_t energy_driver;                    // Energy monitor configured
   uint8_t light_driver;                     // Light module configured
   uint8_t light_type;                       // Light types
@@ -497,52 +519,52 @@ void setup(void) {
   InfinitekGlobal.temperature_celsius = NAN;
   InfinitekGlobal.blinks = 201;
     // --- Power & Energy Monitoring Sensors ---
-  #if USE_HLW8012
+  #ifdef USE_HLW8012
     hlw8012.begin();
   #endif
-  #if USE_BL0937
+  #ifdef USE_BL0937
     bl0937.begin();
   #endif
-  #if USE_INA219
+  #ifdef USE_INA219
     ina219.begin();
   #endif
-  #if USE_INA3221
+  #ifdef USE_INA3221
     ina3221.begin();
   #endif
-  #if USE_PZEM004T
+  #ifdef USE_PZEM004T
     pzem.begin(Serial);
   #endif
 
     // --- Motion & Presence Sensors ---
-  #if USE_PIR
+  #ifdef USE_PIR
     pinMode(PIR_PIN, INPUT);
   #endif
-  #if USE_RADAR
+  #ifdef USE_RADAR
     radar.begin();
   #endif
-  #if USE_ULTRASONIC
+  #ifdef USE_ULTRASONIC
     ultrasonic.begin();
   #endif
 
     // --- Light & Color Sensors ---
-  #if USE_BH1750
+  #ifdef USE_BH1750
     bh1750.begin();
   #endif
-  #if USE_TSL2561
+  #ifdef USE_TSL2561
     tsl2561.begin();
   #endif
-  #if USE_TSL2591
+  #ifdef USE_TSL2591
     tsl2591.begin();
   #endif
-  #if USE_APDS9960
+  #ifdef USE_APDS9960
     apds9960.begin();
   #endif
 
     // --- Switches & Buttons ---
-  #if USE_SWITCH
+  #ifdef USE_SWITCH
     pinMode(SWITCH_PIN, INPUT_PULLUP);
   #endif
-  #if USE_TOUCH
+  #ifdef USE_TOUCH
     touch.begin();
   #endif
 
@@ -550,13 +572,13 @@ void setup(void) {
     // No hardware init needed
 
     // --- Advanced / Special Sensors ---
-  #if USE_GPS
+  #ifdef USE_GPS
     gps.begin();
   #endif
-  #if USE_RFID
+  #ifdef USE_RFID
     rfid.begin();
   #endif
-  #if USE_CAMERA
+  #ifdef USE_CAMERA
     camera.begin();
   #endif
     // --- Sensor Initialization ---
@@ -1166,7 +1188,7 @@ void loop(void) {
   #endif
 
     // --- MQTT Publishing Examples ---
-  #if USE_MQTT
+  #ifdef USE_MQTT
     // Power sensor example
     #if USE_HLW8012
       char hlwPayload[64];
@@ -1198,7 +1220,7 @@ void loop(void) {
   #endif
     #if USE_MQTT
         // Example: Publish DHT sensor data to MQTT topic
-        #if USE_DHT11 || USE_DHT22
+    #if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
           char dhtPayload[64];
           snprintf(dhtPayload, sizeof(dhtPayload), "{\"temperature\":%.2f,\"humidity\":%.2f}", dhtTemp, dhtHum);
           MqttPublishPayload("infinitek/sensor/dht", dhtPayload);

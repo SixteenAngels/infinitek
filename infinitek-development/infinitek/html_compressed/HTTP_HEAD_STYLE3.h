@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // compressed by tools/unishox/compress-html-uncompressed.py
-// input sha256: a209b9067518627d964ff47dbef752032f0399605ca7180131f33baa69a6aacf
+// input sha256: bd0096d7400118adc11d2173ffa9e25f63ee96b76f4df24eee1019627976010f
 /////////////////////////////////////////////////////////////////////
 
 const size_t HTTP_HEAD_STYLE3_SIZE = 248;    // compressed size 173 bytes

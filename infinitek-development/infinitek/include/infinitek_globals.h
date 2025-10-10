@@ -70,7 +70,7 @@ String EthernetMacAddress(void);
  * Preconfigured configurations
 \*********************************************************************************************/
 
-#include "include/Infinitek_configurations.h"            // Preconfigured configurations
+#include "include/infinitek_configurations.h"            // Preconfigured configurations
 
 /*********************************************************************************************\
  * Finale overrides
