@@ -84,7 +84,7 @@
 #include <Adafruit_BME680.h>
 #endif
 #if defined(USE_SHT3X)
-#include <SHT3x.h>
+#include "include/SHT3x.h"
 #endif
 #if defined(USE_SHT4X)
 #include <SHT4x.h>
