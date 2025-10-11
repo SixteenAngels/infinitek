@@ -59,9 +59,7 @@ class InfinitekSerial : public Stream {
     size_t write(uint8_t byte) override;
     int read(void) override;
     size_t read(char* buffer, size_t size);
-    size_t read(uint8_t* buffer, size_t size) {
-      return read(reinterpret_cast<char*>(buffer), size);
-    }
+    int read(uint8_t* buffer, size_t size) override;
     void setReadChunkMode(bool mode);
     int available(void) override;
     void flush(void) override;

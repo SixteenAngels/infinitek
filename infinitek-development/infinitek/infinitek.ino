@@ -105,8 +105,8 @@
 #include <PMS.h>
 #endif
 
-// --- Sensor Instances ---
 #ifdef USE_DEMO_SENSORS
+// --- Sensor Instances (demo-only) ---
 #if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
 DHT dht;
 #endif
@@ -140,7 +140,7 @@ MHZ19 mhz19;
 #if defined(USE_PMS5003)
 PMS pms(Serial);
 #endif
-#endif
+#endif  // USE_DEMO_SENSORS
 
 #ifdef USE_UFILESYS
 #ifdef ESP8266
@@ -521,20 +521,22 @@ void setup(void) {
   InfinitekGlobal.temperature_celsius = NAN;
   InfinitekGlobal.blinks = 201;
     // --- Power & Energy Monitoring Sensors ---
-  #ifdef USE_HLW8012
-    hlw8012.begin();
-  #endif
-  #ifdef USE_BL0937
-    bl0937.begin();
-  #endif
-  #ifdef USE_INA219
-    ina219.begin();
-  #endif
-  #ifdef USE_INA3221
-    ina3221.begin();
-  #endif
-  #ifdef USE_PZEM004T
-    pzem.begin(Serial);
+  #ifdef USE_DEMO_SENSORS
+    #ifdef USE_HLW8012
+      hlw8012.begin();
+    #endif
+    #ifdef USE_BL0937
+      bl0937.begin();
+    #endif
+    #ifdef USE_INA219
+      ina219.begin();
+    #endif
+    #ifdef USE_INA3221
+      ina3221.begin();
+    #endif
+    #ifdef USE_PZEM004T
+      pzem.begin(Serial);
+    #endif
   #endif
 
     // --- Motion & Presence Sensors ---
@@ -583,40 +585,42 @@ void setup(void) {
   #ifdef USE_CAMERA
     camera.begin();
   #endif
-    // --- Sensor Initialization ---
-  #if defined(USE_DHT11) || defined(USE_DHT22)
-    dht.begin();
-  #endif
-  #ifdef USE_BME280
-    bme280.begin(0x76); // Default I2C address
-  #endif
-  #ifdef USE_BMP280
-    bmp280.begin(0x76); // Default I2C address
-  #endif
-  #ifdef USE_BME680
-    bme680.begin(0x76); // Default I2C address
-  #endif
-  #ifdef USE_SHT3X
-    sht3x.begin();
-  #endif
-  #ifdef USE_SHT4X
-    sht4x.begin();
-  #endif
-  #ifdef USE_CCS811
-    ccs811.begin();
-  #endif
-  #ifdef USE_SGP30
-    sgp30.begin();
-  #endif
-  #ifdef USE_SCD30
-    scd30.begin();
-  #endif
-  #ifdef USE_MHZ19
-    mhz19.begin(Serial);
-  #endif
-  #ifdef USE_PMS5003
-    pms.passiveMode();
-  #endif
+    // --- Sensor Initialization (demo-only) ---
+  #ifdef USE_DEMO_SENSORS
+    #if defined(USE_DHT11) || defined(USE_DHT22)
+      dht.begin();
+    #endif
+    #ifdef USE_BME280
+      bme280.begin(0x76); // Default I2C address
+    #endif
+    #ifdef USE_BMP280
+      bmp280.begin(0x76); // Default I2C address
+    #endif
+    #ifdef USE_BME680
+      bme680.begin(0x76); // Default I2C address
+    #endif
+    #ifdef USE_SHT3X
+      sht3x.begin();
+    #endif
+    #ifdef USE_SHT4X
+      sht4x.begin();
+    #endif
+    #ifdef USE_CCS811
+      ccs811.begin();
+    #endif
+    #ifdef USE_SGP30
+      sgp30.begin();
+    #endif
+    #ifdef USE_SCD30
+      scd30.begin();
+    #endif
+    #ifdef USE_MHZ19
+      mhz19.begin(Serial);
+    #endif
+    #ifdef USE_PMS5003
+      pms.passiveMode();
+    #endif
+  #endif  // USE_DEMO_SENSORS
   InfinitekGlobal.wifi_state_flag = WIFI_RESTART;
   InfinitekGlobal.tele_period = 9999;
   InfinitekGlobal.active_device = 1;
@@ -1065,170 +1069,133 @@ void loop(void) {
   uint32_t loops_per_second = 1000 / loop_delay;   // We need to keep track of this many loops per second
   uint32_t this_cycle_ratio = 100 * my_activity / loop_delay;
   InfinitekGlobal.loop_load_avg = InfinitekGlobal.loop_load_avg - (InfinitekGlobal.loop_load_avg / loops_per_second) + (this_cycle_ratio / loops_per_second); // Take away one loop average away and add the new one
-    // --- Sensor Reading and Publishing ---
-  #if defined(USE_DHT11) || defined(USE_DHT22)
-    float dhtTemp = dht.readTemperature();
-    float dhtHum = dht.readHumidity();
-  #endif
-  #ifdef USE_BME280
-    float bmeTemp = bme280.readTemperature();
-    float bmeHum = bme280.readHumidity();
-    float bmePres = bme280.readPressure();
-  #endif
-  #ifdef USE_BMP280
-    float bmpTemp = bmp280.readTemperature();
-    float bmpPres = bmp280.readPressure();
-  #endif
-  #ifdef USE_BME680
-    float bme680Temp = bme680.temperature;
-    float bme680Hum = bme680.humidity;
-    float bme680Gas = bme680.gas_resistance;
-  #endif
-  #ifdef USE_SHT3X
-    float sht3xTemp = sht3x.getTemperature();
-    float sht3xHum = sht3x.getHumidity();
-  #endif
-  #ifdef USE_SHT4X
-    float sht4xTemp = sht4x.getTemperature();
-    float sht4xHum = sht4x.getHumidity();
-  #endif
-  #ifdef USE_CCS811
-    uint16_t ccs811CO2 = ccs811.geteCO2();
-    uint16_t ccs811TVOC = ccs811.getTVOC();
-  #endif
-  #ifdef USE_SGP30
-    uint16_t sgp30CO2 = sgp30.eCO2;
-    uint16_t sgp30TVOC = sgp30.TVOC;
-  #endif
-  #ifdef USE_SCD30
-    float scd30CO2 = scd30.getCO2();
-    float scd30Temp = scd30.getTemperature();
-    float scd30Hum = scd30.getHumidity();
-  #endif
-  #ifdef USE_MHZ19
-    int mhz19CO2 = mhz19.getCO2();
-  #endif
-  #ifdef USE_PMS5003
-    PMS::DATA pmsData;
-    if (pms.readUntil(pmsData)) {
-      int pmsPM25 = pmsData.PM_AE_UG_2_5;
-      int pmsPM10 = pmsData.PM_AE_UG_10_0;
-    }
-  #endif
+    // --- Sensor Reading and Publishing (demo-only) ---
+  #ifdef USE_DEMO_SENSORS
+    #if defined(USE_DHT11) || defined(USE_DHT22)
+      float dhtTemp = dht.readTemperature();
+      float dhtHum = dht.readHumidity();
+    #endif
+    #ifdef USE_BME280
+      float bmeTemp = bme280.readTemperature();
+      float bmeHum = bme280.readHumidity();
+      float bmePres = bme280.readPressure();
+    #endif
+    #ifdef USE_BMP280
+      float bmpTemp = bmp280.readTemperature();
+      float bmpPres = bmp280.readPressure();
+    #endif
+    #ifdef USE_BME680
+      float bme680Temp = bme680.temperature;
+      float bme680Hum = bme680.humidity;
+      float bme680Gas = bme680.gas_resistance;
+    #endif
+    #ifdef USE_SHT3X
+      float sht3xTemp = sht3x.getTemperature();
+      float sht3xHum = sht3x.getHumidity();
+    #endif
+    #ifdef USE_SHT4X
+      float sht4xTemp = sht4x.getTemperature();
+      float sht4xHum = sht4x.getHumidity();
+    #endif
+    #ifdef USE_CCS811
+      uint16_t ccs811CO2 = ccs811.geteCO2();
+      uint16_t ccs811TVOC = ccs811.getTVOC();
+    #endif
+    #ifdef USE_SGP30
+      uint16_t sgp30CO2 = sgp30.eCO2;
+      uint16_t sgp30TVOC = sgp30.TVOC;
+    #endif
+    #ifdef USE_SCD30
+      float scd30CO2 = scd30.getCO2();
+      float scd30Temp = scd30.getTemperature();
+      float scd30Hum = scd30.getHumidity();
+    #endif
+    #ifdef USE_MHZ19
+      int mhz19CO2 = mhz19.getCO2();
+    #endif
+    #ifdef USE_PMS5003
+      PMS::DATA pmsData;
+      if (pms.readUntil(pmsData)) {
+        int pmsPM25 = pmsData.PM_AE_UG_2_5;
+        int pmsPM10 = pmsData.PM_AE_UG_10_0;
+      }
+    #endif
     // --- Power & Energy Monitoring ---
-  #ifdef USE_HLW8012
-    float hlwPower = hlw8012.getPower();
-    float hlwVoltage = hlw8012.getVoltage();
-    float hlwCurrent = hlw8012.getCurrent();
-  #endif
-  #ifdef USE_BL0937
-    float blPower = bl0937.getPower();
-    float blVoltage = bl0937.getVoltage();
-    float blCurrent = bl0937.getCurrent();
-  #endif
-  #ifdef USE_INA219
-    float ina219Voltage = ina219.getBusVoltage_V();
-    float ina219Current = ina219.getCurrent_mA();
-  #endif
-  #ifdef USE_INA3221
-    float ina3221Voltage = ina3221.getBusVoltage_V(1);
-    float ina3221Current = ina3221.getCurrent_mA(1);
-  #endif
-  #ifdef USE_PZEM004T
-    float pzemVoltage = pzem.voltage();
-    float pzemCurrent = pzem.current();
-    float pzemPower = pzem.power();
-  #endif
-
-    // --- Motion & Presence ---
-  #ifdef USE_PIR
-    bool pirDetected = digitalRead(PIR_PIN);
-  #endif
-  #ifdef USE_RADAR
-    bool radarDetected = radar.isPresence();
-  #endif
-  #ifdef USE_ULTRASONIC
-    float distance = ultrasonic.readDistanceCM();
-  #endif
-
-    // --- Light & Color ---
-  #ifdef USE_BH1750
-    float lux = bh1750.readLightLevel();
-  #endif
-  #ifdef USE_TSL2561
-    float tslLux = tsl2561.getLux();
-  #endif
-  #ifdef USE_TSL2591
-    float tsl2591Lux = tsl2591.getLux();
-  #endif
-  #ifdef USE_APDS9960
-    int color = apds9960.readColor();
-  #endif
-
-    // --- Switches & Buttons ---
-  #ifdef USE_SWITCH
-    bool switchState = digitalRead(SWITCH_PIN);
-  #endif
-  #ifdef USE_TOUCH
-    bool touchState = touch.isTouched();
-  #endif
-
-    // --- Virtual Sensors ---
-    int wifiRSSI = WiFi.RSSI();
-    unsigned long uptime = millis() / 1000;
-    unsigned long heap = ESP.getFreeHeap();
-
-    // --- Advanced / Special Sensors ---
-  #ifdef USE_GPS
-    String gpsLocation = gps.getLocation();
-  #endif
-  #ifdef USE_RFID
-    String rfidTag = rfid.readTag();
-  #endif
-  #ifdef USE_CAMERA
-    camera.capture();
-  #endif
-
-    // --- MQTT Publishing Examples ---
-  #ifdef USE_MQTT
-    // Power sensor example
     #ifdef USE_HLW8012
-      char hlwPayload[64];
-      snprintf(hlwPayload, sizeof(hlwPayload), "{\"power\":%.2f,\"voltage\":%.2f,\"current\":%.2f}", hlwPower, hlwVoltage, hlwCurrent);
-      MqttPublishPayload("infinitek/sensor/hlw8012", hlwPayload);
+      float hlwPower = hlw8012.getPower();
+      float hlwVoltage = hlw8012.getVoltage();
+      float hlwCurrent = hlw8012.getCurrent();
     #endif
-    // Motion sensor example
+    #ifdef USE_BL0937
+      float blPower = bl0937.getPower();
+      float blVoltage = bl0937.getVoltage();
+      float blCurrent = bl0937.getCurrent();
+    #endif
+    #ifdef USE_INA219
+      float ina219Voltage = ina219.getBusVoltage_V();
+      float ina219Current = ina219.getCurrent_mA();
+    #endif
+    #ifdef USE_INA3221
+      float ina3221Voltage = ina3221.getBusVoltage_V(1);
+      float ina3221Current = ina3221.getCurrent_mA(1);
+    #endif
+    #ifdef USE_PZEM004T
+      float pzemVoltage = pzem.voltage();
+      float pzemCurrent = pzem.current();
+      float pzemPower = pzem.power();
+    #endif
+  
+    // --- Motion & Presence ---
     #ifdef USE_PIR
-      char pirPayload[32];
-      snprintf(pirPayload, sizeof(pirPayload), "{\"motion\":%d}", pirDetected);
-      MqttPublishPayload("infinitek/sensor/pir", pirPayload);
+      bool pirDetected = digitalRead(PIR_PIN);
     #endif
-    // Light sensor example
+    #ifdef USE_RADAR
+      bool radarDetected = radar.isPresence();
+    #endif
+    #ifdef USE_ULTRASONIC
+      float distance = ultrasonic.readDistanceCM();
+    #endif
+  
+    // --- Light & Color ---
     #ifdef USE_BH1750
-      char luxPayload[32];
-      snprintf(luxPayload, sizeof(luxPayload), "{\"lux\":%.2f}", lux);
-      MqttPublishPayload("infinitek/sensor/bh1750", luxPayload);
+      float lux = bh1750.readLightLevel();
     #endif
-    // Switch example
+    #ifdef USE_TSL2561
+      float tslLux = tsl2561.getLux();
+    #endif
+    #ifdef USE_TSL2591
+      float tsl2591Lux = tsl2591.getLux();
+    #endif
+    #ifdef USE_APDS9960
+      int color = apds9960.readColor();
+    #endif
+  
+    // --- Switches & Buttons ---
     #ifdef USE_SWITCH
-      char switchPayload[32];
-      snprintf(switchPayload, sizeof(switchPayload), "{\"switch\":%d}", switchState);
-      MqttPublishPayload("infinitek/sensor/switch", switchPayload);
+      bool switchState = digitalRead(SWITCH_PIN);
     #endif
-    // Virtual sensor example
-      char sysPayload[64];
-      snprintf(sysPayload, sizeof(sysPayload), "{\"rssi\":%d,\"uptime\":%lu,\"heap\":%lu}", wifiRSSI, uptime, heap);
-      MqttPublishPayload("infinitek/sensor/system", sysPayload);
-  #endif
-    #ifdef USE_MQTT
-        // Example: Publish DHT sensor data to MQTT topic
-    #if defined(USE_DEMO_SENSORS) && (defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22))
-          char dhtPayload[64];
-          snprintf(dhtPayload, sizeof(dhtPayload), "{\"temperature\":%.2f,\"humidity\":%.2f}", dhtTemp, dhtHum);
-          MqttPublishPayload("infinitek/sensor/dht", dhtPayload);
-        #endif
-        // Add similar blocks for other sensors as needed
+    #ifdef USE_TOUCH
+      bool touchState = touch.isTouched();
     #endif
+  
+    // --- Virtual Sensors ---
+      int wifiRSSI = WiFi.RSSI();
+      unsigned long uptime = millis() / 1000;
+      unsigned long heap = ESP.getFreeHeap();
+  
+    // --- Advanced / Special Sensors ---
+    #ifdef USE_GPS
+      String gpsLocation = gps.getLocation();
+    #endif
+    #ifdef USE_RFID
+      String rfidTag = rfid.readTag();
+    #endif
+    #ifdef USE_CAMERA
+      camera.capture();
+    #endif
+  #endif  // USE_DEMO_SENSORS
+
+    // Demo MQTT examples removed in favor of driver-based publishing.
     #ifdef USE_MATTER
       // Example: Publish sensor data to Matter endpoint
       // Replace with actual Matter SDK publish function
@@ -1236,16 +1203,5 @@ void loop(void) {
     #endif
 
     // --- Publish sensor data via MQTT/Matter ---
-  #ifdef USE_MQTT
-    // Publish sensor data to MQTT topic
-    if (InfinitekGlobal.mqtt_enabled) {
-      MqttPublishSensorData();
-    }
-  #endif
-  #ifdef USE_MATTER
-    // Publish sensor data to Matter endpoint
-    if (InfinitekGlobal.matter_enabled) {
-      MatterPublishSensorData();
-    }
-  #endif
+  // Note: Publishing of aggregated sensor data is handled by drivers (xdrv/xsns)
 }

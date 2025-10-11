@@ -418,6 +418,14 @@ size_t InfinitekSerial::read(char* buffer, size_t size) {
   }
 }
 
+int InfinitekSerial::read(uint8_t* buffer, size_t size) {
+  if (!buffer || size == 0) {
+    return 0;
+  }
+  size_t n = read(reinterpret_cast<char*>(buffer), size);
+  return n > 0 ? static_cast<int>(n) : -1;
+}
+
 int InfinitekSerial::available(void) {
   if (m_hardserial) {
 #ifdef ESP8266
