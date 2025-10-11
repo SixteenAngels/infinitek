@@ -106,6 +106,7 @@
 #endif
 
 // --- Sensor Instances ---
+#ifdef USE_DEMO_SENSORS
 #if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
 DHT dht;
 #endif
@@ -138,6 +139,7 @@ MHZ19 mhz19;
 #endif
 #if defined(USE_PMS5003)
 PMS pms(Serial);
+#endif
 #endif
 
 #ifdef USE_UFILESYS
@@ -1220,7 +1222,7 @@ void loop(void) {
   #endif
     #if USE_MQTT
         // Example: Publish DHT sensor data to MQTT topic
-    #if defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22)
+    #if defined(USE_DEMO_SENSORS) && (defined(USE_DHT) || defined(USE_DHT11) || defined(USE_DHT22))
           char dhtPayload[64];
           snprintf(dhtPayload, sizeof(dhtPayload), "{\"temperature\":%.2f,\"humidity\":%.2f}", dhtTemp, dhtHum);
           MqttPublishPayload("infinitek/sensor/dht", dhtPayload);

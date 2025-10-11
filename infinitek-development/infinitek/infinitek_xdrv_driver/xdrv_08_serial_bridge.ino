@@ -71,7 +71,7 @@ const char kSerialBridgeCommands[] PROGMEM = "|"  // No prefix
 void (* const SerialBridgeCommand[])(void) PROGMEM = {
   &CmndSSerialSend, &CmndSBaudrate, &CmndSSerialBuffer, &CmndSSerialConfig, &CmndSSerialMode };
 
-#include <InfinitekSerial.h>
+#include <infinitekSerial.h>
 InfinitekSerial *SerialBridgeSerial = nullptr;
 
 char *serial_bridge_buffer = nullptr;
