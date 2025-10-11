@@ -87,7 +87,7 @@
 #include "include/SHT3x.h"
 #endif
 #if defined(USE_SHT4X)
-#include <SHT4x.h>
+#include "include/SHT4x.h"
 #endif
 #if defined(USE_CCS811) || defined(USE_CCS811_V2)
 #include <Adafruit_CCS811.h>
