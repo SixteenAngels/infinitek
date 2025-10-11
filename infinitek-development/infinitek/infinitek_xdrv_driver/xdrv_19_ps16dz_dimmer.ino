@@ -27,7 +27,7 @@
 
 #define PS16DZ_BUFFER_SIZE     80
 
-#include <InfinitekSerial.h>
+#include <infinitekSerial.h>
 
 InfinitekSerial *PS16DZSerial = nullptr;
 

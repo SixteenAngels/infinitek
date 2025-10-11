@@ -1,6 +1,6 @@
 ###############################################################
-# compresses all files found in ..\..\Infinitek\html_uncompressed
-# write compressed C code to    ..\..\Infinitek\html_compressed
+# compresses all files found in ..\..\infinitek\html_uncompressed
+# write compressed C code to    ..\..\infinitek\html_compressed
 # Instructions:
 # open a console, e.g. in vscode, open a 'terminal'
 # cd .\tools\unishox
@@ -207,8 +207,8 @@ def compress_dir(source_dir, target_dir, argv=None, verbose=False):
   return (totalIn, totalSaved)
 
 if __name__ == '__main__':
-  path_uncompressed = Path(base_dir, 'Infinitek', 'html_uncompressed')
-  path_compressed   = Path(base_dir, 'Infinitek', 'html_compressed')
+  path_uncompressed = Path(base_dir, 'infinitek', 'html_uncompressed')
+  path_compressed   = Path(base_dir, 'infinitek', 'html_compressed')
 
   totalIn, totalSaved = compress_dir(path_uncompressed, path_compressed, argv, True)
 

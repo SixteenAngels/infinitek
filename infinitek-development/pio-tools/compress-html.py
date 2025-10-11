@@ -10,6 +10,6 @@ sys.dont_write_bytecode = True
 
 compress_dir = __import__('compress-html-uncompressed').compress_dir
 
-path_uncompressed = Path(base_dir, 'Infinitek', 'html_uncompressed')
-path_compressed   = Path(base_dir, 'Infinitek', 'html_compressed')
+path_uncompressed = Path(base_dir, 'infinitek', 'html_uncompressed')
+path_compressed   = Path(base_dir, 'infinitek', 'html_compressed')
 compress_dir(path_uncompressed, path_compressed)

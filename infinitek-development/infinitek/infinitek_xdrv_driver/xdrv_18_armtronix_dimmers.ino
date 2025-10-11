@@ -28,7 +28,7 @@
 
 #define XDRV_18                18
 
-#include <InfinitekSerial.h>
+#include <infinitekSerial.h>
 
 InfinitekSerial *ArmtronixSerial = nullptr;
 
