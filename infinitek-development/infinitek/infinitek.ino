@@ -584,7 +584,7 @@ void setup(void) {
     camera.begin();
   #endif
     // --- Sensor Initialization ---
-  #ifdef USE_DHT11 || USE_DHT22
+  #if defined(USE_DHT11) || defined(USE_DHT22)
     dht.begin();
   #endif
   #ifdef USE_BME280
@@ -1066,7 +1066,7 @@ void loop(void) {
   uint32_t this_cycle_ratio = 100 * my_activity / loop_delay;
   InfinitekGlobal.loop_load_avg = InfinitekGlobal.loop_load_avg - (InfinitekGlobal.loop_load_avg / loops_per_second) + (this_cycle_ratio / loops_per_second); // Take away one loop average away and add the new one
     // --- Sensor Reading and Publishing ---
-  #ifdef USE_DHT11 || USE_DHT22
+  #if defined(USE_DHT11) || defined(USE_DHT22)
     float dhtTemp = dht.readTemperature();
     float dhtHum = dht.readHumidity();
   #endif
