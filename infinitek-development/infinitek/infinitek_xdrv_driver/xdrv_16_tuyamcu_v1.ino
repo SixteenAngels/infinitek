@@ -59,7 +59,7 @@
 
 #define TUYA_BUFFER_SIZE       256
 
-#include <InfinitekSerial.h>
+#include <infinitekSerial.h>
 
 InfinitekSerial *TuyaSerial = nullptr;
 

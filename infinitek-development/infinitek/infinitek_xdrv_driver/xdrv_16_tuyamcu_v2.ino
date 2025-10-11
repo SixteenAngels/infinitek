@@ -160,7 +160,7 @@ enum {
 
 };
 
-#include <InfinitekSerial.h>
+#include <infinitekSerial.h>
 InfinitekSerial *TuyaSerial = nullptr;
 
 #define TUYA_MAX_STORED_DPs 10
