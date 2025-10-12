@@ -20,7 +20,7 @@
 #ifndef __Infinitek_INCLUDE__
 #define __Infinitek_INCLUDE__
 
-#include "../Infinitek/my_user_config.h"
-#include "../Infinitek/include/Infinitek_configurations.h"
+#include "../infinitek/my_user_config.h"
+#include "../infinitek/include/infinitek_configurations.h"
 
 #endif // __Infinitek_INCLUDE__
