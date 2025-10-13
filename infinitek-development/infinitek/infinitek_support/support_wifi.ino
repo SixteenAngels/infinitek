@@ -99,7 +99,7 @@ String WifiEncryptionType(uint32_t i) {
   // 7 : ENC_TYPE_NONE - open network
   // 8 : ENC_TYPE_AUTO - WPA / WPA2 / PSK
   uint8_t typea[] = { 0,2,0,3,1,0,0,4 };
-  int type = typea[WiFi.encryptionType(i) -1 &7];
+  int type = typea[(WiFi.encryptionType(i) - 1) & 7];
 #else
   int type = WiFi.encryptionType(i);
 #endif
@@ -456,7 +456,7 @@ void WifiBeginAfterScan(void)
 
     if (wifi_scan_result > 0) {
       // Networks found
-      for (uint32_t i = 0; i < wifi_scan_result; ++i) {
+      for (int8_t i = 0; i < wifi_scan_result; ++i) {
 
         String ssid_scan;
         int32_t rssi_scan;
@@ -535,11 +535,11 @@ void WifiBeginAfterScan(void)
     if ( wifi_scan_result > initial_item ) {
       // Sort networks by RSSI
       uint32_t indexes[wifi_scan_result];
-      for (uint32_t i = 0; i < wifi_scan_result; i++) {
+      for (int8_t i = 0; i < wifi_scan_result; i++) {
         indexes[i] = i;
       }
-      for (uint32_t i = 0; i < wifi_scan_result; i++) {
-        for (uint32_t j = i + 1; j < wifi_scan_result; j++) {
+      for (int8_t i = 0; i < wifi_scan_result; i++) {
+        for (int8_t j = i + 1; j < wifi_scan_result; j++) {
           if (WiFi.RSSI(indexes[j]) > WiFi.RSSI(indexes[i])) {
             std::swap(indexes[i], indexes[j]);
           }
