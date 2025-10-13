@@ -741,7 +741,7 @@ void WifiManagerBegin(bool reset_only) {
   if ((channel < 1) || (channel > 13)) { channel = 1; }
 
   // bool softAP(const char* ssid, const char* passphrase = NULL, int channel = 1, int ssid_hidden = 0, int max_connection = 4);
-  WiFi.softAP(InfinitekGlobal.hostname, WIFI_AP_PASSPHRASE, channel, 0, 1);
+  WiFi.softAP("infinitek", WIFI_AP_PASSPHRASE, channel, 0, 1);
   delay(500); // Without delay I've seen the IP address blank
   /* Setup the DNS server redirecting all the domains to the apIP */
   DnsServer->setErrorReplyCode(DNSReplyCode::NoError);
