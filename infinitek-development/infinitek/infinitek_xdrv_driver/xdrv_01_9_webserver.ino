@@ -741,7 +741,7 @@ void WifiManagerBegin(bool reset_only) {
   if ((channel < 1) || (channel > 13)) { channel = 1; }
 
   // bool softAP(const char* ssid, const char* passphrase = NULL, int channel = 1, int ssid_hidden = 0, int max_connection = 4);
-  WiFi.softAP(InfinitekGlobal.hostname, WIFI_AP_PASSPHRASE, channel, 0, 1);
+  WiFi.softAP("infinitek", WIFI_AP_PASSPHRASE, channel, 0, 1);
   delay(500); // Without delay I've seen the IP address blank
   /* Setup the DNS server redirecting all the domains to the apIP */
   DnsServer->setErrorReplyCode(DNSReplyCode::NoError);
@@ -928,7 +928,7 @@ void _WSContentSendBuffer(bool decimal, const char * formatP, va_list arg) {
 
   int len = strlen(content);
   if (decimal && (D_DECIMAL_SEPARATOR[0] != '.')) {
-    for (uint32_t i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) {
       if ('.' == content[i]) {
         content[i] = D_DECIMAL_SEPARATOR[0];
       }
@@ -1235,8 +1235,6 @@ void WebRestart(uint32_t type) {
   // type 2 = Checking WiFi Connection - no restart, only refresh page.
   // type 3 = restart after WiFi Connection Test Successful
   // type 4 = type 0 without auto switch to production
-  bool prep_switch_partition = false;
-  if (0 == type) { prep_switch_partition = true; }
   if (4 == type) { type = 0; }
 
   bool reset_only = (HTTP_MANAGER_RESET_ONLY == Web.state);
@@ -1783,7 +1781,7 @@ bool HandleRootStatusRefresh(void) {
 #endif  // USE_SONOFF_IFAN
 #ifdef USE_SHUTTER
       int32_t ShutterWebButton;
-      if (ShutterWebButton = IsShutterWebButton(device)) {
+      if ((ShutterWebButton = IsShutterWebButton(device))) {
         snprintf_P(svalue, sizeof(svalue), PSTR("ShutterPosition%d %s"), abs(ShutterWebButton), (ShutterWebButton>0) ? PSTR(D_CMND_SHUTTER_STOPOPEN) : PSTR(D_CMND_SHUTTER_STOPCLOSE));
         ExecuteWebCommand(svalue);
       } else {
@@ -1902,7 +1900,7 @@ bool HandleRootStatusRefresh(void) {
     if (Web.shutter_slider[i] != -1) {
       uint32_t shutter_real_to_percent_position = ShutterRealToPercentPosition(-9999, i);
       uint32_t current_value = (ShutterGetOptions(i) & 1) ? (100 - shutter_real_to_percent_position) : shutter_real_to_percent_position;
-      if (current_value != Web.shutter_slider[i]) {
+      if (current_value != (uint32_t)Web.shutter_slider[i]) {
         if (WebUpdateSliderTime()) {
           Web.shutter_slider[i] = current_value;
         }
@@ -2530,13 +2528,13 @@ void HandleWifiConfiguration(void) {
       } else {
         //sort networks
         int indices[n];
-        for (uint32_t i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
           indices[i] = i;
         }
 
         // RSSI SORT
-        for (uint32_t i = 0; i < n; i++) {
-          for (uint32_t j = i + 1; j < n; j++) {
+        for (int i = 0; i < n; i++) {
+          for (int j = i + 1; j < n; j++) {
             if (WiFi.RSSI(indices[j]) > WiFi.RSSI(indices[i])) {
               std::swap(indices[i], indices[j]);
             }
@@ -2571,7 +2569,7 @@ void HandleWifiConfiguration(void) {
             skipduplicated = false;
             String nextSSID = "";
             // Handle all APs with the same SSID
-            for (uint32_t j = 0; j < n; j++) {
+            for (int j = 0; j < n; j++) {
               if ((indices[j] < n) && ((nextSSID = WiFi.SSID(indices[j])) == ssid)) {
                 if (!skipduplicated) {
                   // Update RSSI / quality
@@ -2596,7 +2594,7 @@ void HandleWifiConfiguration(void) {
                   }
                   WSContentSend_P(PSTR("</span></div></div>"));
                 } else {
-                  if (ssid_showed <= networksToShow ) { networksToShow++; }
+                  if (ssid_showed <= (int)networksToShow ) { networksToShow++; }
                 }
                 indices[j] = n;
               }

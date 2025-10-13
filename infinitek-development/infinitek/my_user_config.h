@@ -51,18 +51,18 @@
 // Only one should be true at a time for exclusive protocol operation
 
 // -- Sensor Support ----------------------------
-#define USE_DHT11              false // Enable DHT11 sensor (GPIO)
-#define USE_DHT22              false // Enable DHT22 sensor (GPIO)
-#define USE_BME280             false // Enable BME280 sensor (I2C/SPI)
-#define USE_BMP280             false // Enable BMP280 sensor (I2C/SPI)
-#define USE_BME680             false // Enable BME680 sensor (I2C/SPI)
-#define USE_SHT3X              false // Enable SHT3x sensor (I2C)
-#define USE_SHT4X              false // Enable SHT4x sensor (I2C)
-#define USE_CCS811             false // Enable CCS811 sensor (I2C)
-#define USE_SGP30              false // Enable SGP30 sensor (I2C)
-#define USE_SCD30              false // Enable SCD30 sensor (I2C)
-#define USE_MHZ19              false // Enable MH-Z19 sensor (UART)
-#define USE_PMS5003            false // Enable PMS5003 sensor (UART)
+#define USE_DHT11              true  // Enable DHT11 sensor (GPIO)
+#define USE_DHT22              true  // Enable DHT22 sensor (GPIO)
+#define USE_BME280             true  // Enable BME280 sensor (I2C/SPI)
+#define USE_BMP280             true  // Enable BMP280 sensor (I2C/SPI)
+#define USE_BME680             true  // Enable BME680 sensor (I2C/SPI)
+#define USE_SHT3X              true  // Enable SHT3x sensor (I2C)
+#define USE_SHT4X              true  // Enable SHT4x sensor (I2C)
+#define USE_CCS811             true  // Enable CCS811 sensor (I2C)
+#define USE_SGP30              true  // Enable SGP30 sensor (I2C)
+#define USE_SCD30              true  // Enable SCD30 sensor (I2C)
+#define USE_MHZ19              true  // Enable MH-Z19 sensor (UART)
+#define USE_PMS5003            true  // Enable PMS5003 sensor (UART)
 
 // -- Project -------------------------------------
 #define PROJECT                "Infinitek"         // PROJECT is used as the default topic delimiter
@@ -1125,8 +1125,8 @@
 //  #define DINGTIAN_USE_AS_SWITCH                 // Inputs as Infinitek's virtual Switches
 
 // Select none or only one of the below defines
-//#define USE_TX20_WIND_SENSOR                     // Add support for La Crosse TX20 anemometer (+2k6/0k8 code)
-//#define USE_TX23_WIND_SENSOR                     // Add support for La Crosse TX23 anemometer (+2k7/1k code)
+#define USE_TX20_WIND_SENSOR                     // Add support for La Crosse TX20 anemometer (+2k6/0k8 code)
+#define USE_TX23_WIND_SENSOR                     // Add support for La Crosse TX23 anemometer (+2k7/1k code)
 
 //#define USE_WINDMETER                            // Add support for analog anemometer (+2k2 code)
 
@@ -1134,7 +1134,7 @@
 
 //#define USE_RC_SWITCH                            // Add support for RF transceiver using library RcSwitch (+2k7 code, 460 iram)
 
-//#define USE_RF_SENSOR                            // Add support for RF sensor receiver (434MHz or 868MHz) (+0k8 code)
+#define USE_RF_SENSOR                            // Add support for RF sensor receiver (434MHz or 868MHz) (+0k8 code)
 //  #define USE_THEO_V2                            // Add support for decoding Theo V2 sensors as documented on https://sidweb.nl using 434MHz RF sensor receiver (+1k4 code)
 //  #define USE_ALECTO_V2                          // Add support for decoding Alecto V2 sensors like ACH2010, WS3000 and DKW2012 weather stations using 868MHz RF sensor receiver (+1k7 code)
 

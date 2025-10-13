@@ -142,11 +142,11 @@ void CmndWifiScan(void)
       if (WiFi.scanComplete() > 0) {
         // Sort networks by RSSI
         uint32_t indexes[WiFi.scanComplete()];
-        for (uint32_t i = 0; i < WiFi.scanComplete(); i++) {
+        for (int8_t i = 0; i < WiFi.scanComplete(); i++) {
           indexes[i] = i;
         }
-        for (uint32_t i = 0; i < WiFi.scanComplete(); i++) {
-          for (uint32_t j = i + 1; j < WiFi.scanComplete(); j++) {
+        for (int8_t i = 0; i < WiFi.scanComplete(); i++) {
+          for (int8_t j = i + 1; j < WiFi.scanComplete(); j++) {
             if (WiFi.RSSI(indexes[j]) > WiFi.RSSI(indexes[i])) {
               std::swap(indexes[i], indexes[j]);
             }
@@ -155,7 +155,7 @@ void CmndWifiScan(void)
         delay(0);
 
         ResponseAppend_P(PSTR("{"));
-        for (uint32_t i = 0; i < WiFi.scanComplete(); i++) {
+        for (int8_t i = 0; i < WiFi.scanComplete(); i++) {
           ResponseAppend_P(PSTR("\"" D_STATUS5_NETWORK "%d\":{\"" D_SSID "\":\"%s\",\"" D_BSSID "\":\"%s\",\"" D_CHANNEL
                           "\":\"%d\",\"" D_JSON_SIGNAL "\":\"%d\",\"" D_RSSI "\":\"%d\",\"" D_JSON_ENCRYPTION "\":\"%s\"}"),
                           i+1,
@@ -166,7 +166,7 @@ void CmndWifiScan(void)
                           WifiGetRssiAsQuality(WiFi.RSSI(indexes[i])),
                           WifiEncryptionType(indexes[i]).c_str());
           if ( ResponseSize() < ResponseLength() + 300 ) { break; }
-          if ( i < WiFi.scanComplete() -1 ) { ResponseAppend_P(PSTR(",")); }
+          if ( i < (WiFi.scanComplete() - 1) ) { ResponseAppend_P(PSTR(",")); }
           //AddLog(LOG_LEVEL_DEBUG, PSTR(D_LOG_WIFI "MAX SIZE: %d, SIZE: %d"),ResponseSize(),ResponseLength());
         }
         ResponseJsonEnd();
