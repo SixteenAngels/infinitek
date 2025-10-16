@@ -21,7 +21,9 @@
 #ifdef USE_BERRY
 #ifdef USE_LVGL
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 // silence warning with Core3
 #pragma GCC diagnostic push

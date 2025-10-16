@@ -21,7 +21,9 @@ SOFTWARE.
 #include <Wire.h>
 #include <math.h>
 #include <stdio.h>
+#ifdef ESP8266
 #include <twi.h>
+#endif
 #include <FrogmoreScd30.h>
 
 #define COMMAND_SCD30_CONTINUOUS_MEASUREMENT      0x0010

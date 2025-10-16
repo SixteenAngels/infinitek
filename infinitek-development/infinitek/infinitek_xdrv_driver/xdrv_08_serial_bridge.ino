@@ -71,7 +71,9 @@ const char kSerialBridgeCommands[] PROGMEM = "|"  // No prefix
 void (* const SerialBridgeCommand[])(void) PROGMEM = {
   &CmndSSerialSend, &CmndSBaudrate, &CmndSSerialBuffer, &CmndSSerialConfig, &CmndSSerialMode };
 
+#ifdef ESP8266
 #include <infinitekSerial.h>
+#endif
 InfinitekSerial *SerialBridgeSerial = nullptr;
 
 char *serial_bridge_buffer = nullptr;

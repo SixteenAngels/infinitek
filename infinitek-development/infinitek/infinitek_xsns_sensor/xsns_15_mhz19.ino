@@ -55,7 +55,9 @@ enum MhzFilterOptions {MHZ19_FILTER_OFF, MHZ19_FILTER_OFF_ALLSAMPLES, MHZ19_FILT
  * Please do zero calibration timely, such as manual or commend calibration.
 \*********************************************************************************************/
 
+#ifdef ESP8266
 #include <InfinitekSerial.h>
+#endif
 
 #ifndef CO2_LOW
 #define CO2_LOW                      800     // Below this CO2 value show green light

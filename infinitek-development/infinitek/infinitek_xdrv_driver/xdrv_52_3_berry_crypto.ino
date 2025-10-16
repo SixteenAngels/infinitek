@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include "be_mem.h"
 #include "be_object.h"
 #include "include/ed25519.h"

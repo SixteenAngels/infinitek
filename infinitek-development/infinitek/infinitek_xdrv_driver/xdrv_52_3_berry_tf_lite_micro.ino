@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #ifdef USE_BERRY_TF_LITE
 

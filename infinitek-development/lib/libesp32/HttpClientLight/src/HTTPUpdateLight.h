@@ -33,7 +33,7 @@
 #include <WiFiUdp.h>
 #include <HttpClientLight.h>
 #include <TasUpdate.h>
-#include <HTTPUpdate.h>
+#include <Update.h>
 
 /// note we use HTTP client errors too so we start at 100
 // #define HTTP_UE_TOO_LESS_SPACE              (-100)

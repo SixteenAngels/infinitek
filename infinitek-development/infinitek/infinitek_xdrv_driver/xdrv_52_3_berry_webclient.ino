@@ -21,7 +21,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include "HttpClientLight.h"
 #include "be_sys.h"
 

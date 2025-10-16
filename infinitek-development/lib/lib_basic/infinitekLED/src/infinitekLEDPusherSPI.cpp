@@ -19,8 +19,8 @@
 
 #ifdef ESP32
 
-#include "InfinitekLEDPusher.h"
-#include "InfinitekLED.h"
+#include "infinitekLEDPusher.h"
+#include "infinitekLED.h"
 
 #if InfinitekLED_HARDWARE_SPI
 #include <rom/gpio.h>

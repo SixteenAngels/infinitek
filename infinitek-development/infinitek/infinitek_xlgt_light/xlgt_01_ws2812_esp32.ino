@@ -49,7 +49,7 @@ const char kWs2812Commands[] PROGMEM = "|"  // No prefix
 void (* const Ws2812Command[])(void) PROGMEM = {
   &CmndLed, &CmndPixels, &CmndRotation, &CmndWidth, &CmndStepPixels, &CmndPixelType };
 
-#include <InfinitekLED.h>
+#include <infinitekLED.h>
 
 const uint16_t kLedType = 0;
 // select the right pixel size

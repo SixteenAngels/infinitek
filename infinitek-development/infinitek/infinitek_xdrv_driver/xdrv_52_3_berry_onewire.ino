@@ -22,7 +22,9 @@
 
 #if defined(USE_ONEWIRE) || defined(USE_DS18x20)
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include <OneWire.h>
 
 // // read the `bus` attribute and return `Wire` or `Wire1`

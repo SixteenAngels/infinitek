@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #if defined(USE_WEBCAM)
 #ifdef USE_BERRY_CAM // driver name is webcam in order to have this code behind the berry_img driver

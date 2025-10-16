@@ -183,7 +183,9 @@
 //#define USE_SPI                                // Hardware SPI using GPIO12(MISO), GPIO13(MOSI) and GPIO14(CLK) in addition to two user selectable GPIOs(CS and DC)
 //#define USE_RC522                              // Add support for MFRC522 13.56Mhz Rfid reader (+6k code)
 
+#ifdef ESP8266
 #define USE_MHZ19                                // Add support for MH-Z19 CO2 sensor (+2k code)
+#endif
 #define USE_SENSEAIR                             // Add support for SenseAir K30, K70 and S8 CO2 sensor (+2k3 code)
 #ifndef CO2_LOW
   #define CO2_LOW              800               // Below this CO2 value show green light (needs PWM or WS2812 RG(B) led and enable with SetOption18 1)
@@ -199,7 +201,9 @@
 #define USE_SR04                                 // Add support for HC-SR04 ultrasonic devices (+1k code)
 //#define USE_ME007                                // Add support for ME007 ultrasonic devices (+1k5 code)
 //#define USE_DYP                                  // Add support for DYP ME-007 ultrasonic distance sensor, serial port version (+0k5 code)
+#ifdef ESP8266
 #define USE_SERIAL_BRIDGE                        // Add support for software Serial Bridge (+2k code)
+#endif
 //#define USE_MODBUS_BRIDGE                        // Add support for software Modbus Bridge (+3k code)
 #define USE_MP3_PLAYER                           // Use of the DFPlayer Mini MP3 Player RB-DFR-562 commands: play, volume and stop
 //#define USE_AZ7798                               // Add support for AZ-Instrument 7798 CO2 datalogger
@@ -224,7 +228,9 @@
 //#define USE_TFMINIPLUS                           // Add suppoer for TFmini Plus (TFmini, TFmini-S) LiDAR modules via UART interface
 //#define USE_HRG15                                // Add support for Hydreon RG-15 Solid State Rain sensor (+1k5 code)
 
+#ifdef ESP8266
 #define USE_ENERGY_SENSOR                        // Add energy sensors (-14k code)
+#endif
 #define USE_PZEM004T                             // Add support for PZEM004T Energy monitor (+2k code)
 #define USE_PZEM_AC                              // Add support for PZEM014,016 Energy monitor (+1k1 code)
 #define USE_PZEM_DC                              // Add support for PZEM003,017 Energy monitor (+1k1 code)
@@ -1011,7 +1017,7 @@
 
 
 #ifdef ESP32
-#include "Infinitek_configurations_ESP32.h"
+#include "infinitek_configurations_ESP32.h"
 #endif  // ESP32
 
 /*********************************************************************************************\

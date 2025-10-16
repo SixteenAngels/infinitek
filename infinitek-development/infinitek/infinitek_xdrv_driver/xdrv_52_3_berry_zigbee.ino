@@ -22,7 +22,9 @@
 #ifdef USE_BERRY
 #ifdef USE_ZIGBEE
 
+#ifdef ESP8266
 #include "berry.h"
+#endif
 #include "be_func.h"
 
 extern "C" {

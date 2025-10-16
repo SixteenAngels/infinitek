@@ -22,7 +22,9 @@
 
 #ifdef USE_WEBSERVER
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 /*********************************************************************************************\
  * Int constants

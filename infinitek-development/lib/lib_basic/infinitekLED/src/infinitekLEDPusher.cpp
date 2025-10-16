@@ -19,8 +19,8 @@
 
 #ifdef ESP32
 
-#include "InfinitekLEDPusher.h"
-#include "InfinitekLED.h"
+#include "infinitekLEDPusher.h"
+#include "infinitekLED.h"
 
 //**************************************************************************************************************
 // enable AddLog support within a C++ library

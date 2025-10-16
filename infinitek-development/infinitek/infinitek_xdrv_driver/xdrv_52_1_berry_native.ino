@@ -20,7 +20,11 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
+#ifdef ESP8266
 #include <berry.h>
+#endif
+#endif
 #include <Wire.h>
 
 const char kTypeError[] PROGMEM = "type_error";
@@ -32,7 +36,9 @@ const char kInternalError[] PROGMEM = "intenal_error";
  * Responds to virtual constants
 \*********************************************************************************************/
 extern "C" {
+  #ifdef ESP8266
   #include "be_vm.h"
+  #endif
   // Call error handler and pop all from stack
   void be_error_pop_all(bvm *vm);
   void be_error_pop_all(bvm *vm) {

@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #include "esp_idf_version.h"
 #if ESP_IDF_VERSION_MAJOR >= 5

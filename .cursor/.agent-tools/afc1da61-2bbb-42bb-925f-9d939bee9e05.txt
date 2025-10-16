@@ -1,0 +1,748 @@
+Processing esp32dev (platform: espressif32; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Removing unused dependencies...
+Verbose mode can be enabled via `-v, --verbose` option
+-DCONFIG_Infinitek_FLASHMODE_DIO
+*** use provided user_config_override.h as planned ***
+*** use provided platformio_override.ini as planned ***
+*** use provided platformio_Infinitek_cenv.ini as planned ***
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (2025.10.50+sha.7d8b3b9) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - contrib-piohome @ 3.4.4 
+ - framework-arduinoespressif32 @ 3.3.2+sha.a689c068 
+ - tool-esptoolpy @ 5.1.0 
+ - tool-mklittlefs @ 3.2.0 
+ - toolchain-xtensa-esp-elf @ 14.2.0+20250730
+Converting infinitek.ino
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ strict
+Found 143 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- Adafruit BME280 Library @ 2.3.0
+|-- Adafruit BMP280 Library @ 2.6.8
+|-- Adafruit BME680 Library @ 2.0.5
+|-- Adafruit SGP30 Sensor @ 2.0.3
+|-- Adafruit CCS811 Library @ 1.1.3
+|-- Adafruit SHT31 Library @ 2.2.2
+|-- Adafruit SHT4x Library @ 1.0.5
+|-- MH-Z19 @ 1.5.4
+|-- PMS Library @ 1.1.0
+|-- OneWire @ 2.3.8
+|-- DallasTemperature @ 3.11.0
+|-- Adafruit Si7021 Library @ 1.5.3
+|-- Adafruit HTU21DF Library @ 1.1.2
+|-- BH1750 @ 1.3.0
+|-- Adafruit TSL2591 Library @ 1.4.5
+|-- SparkFun APDS9960 RGB and Gesture Sensor @ 1.4.3
+|-- Max44009 @ 0.6.1
+|-- Adafruit AS7341 @ 1.4.1
+|-- ld2410 @ 0.1.4
+|-- HLW8012 @ 1.1.2
+|-- PZEM004T @ 1.1.5
+|-- INA226 @ 0.4.4
+|-- ACS712 @ 0.3.10
+|-- HX711 @ 0.7.5
+|-- Adafruit BNO055 @ 1.6.4
+|-- Adafruit ADS1X15 @ 2.6.0
+|-- Nova Fitness Sds dust sensors library @ 1.5.1
+|-- Adafruit MAX31865 library @ 1.0.1
+|-- Adafruit MCP9808 Library @ 1.1.2
+|-- Adafruit PM25 AQI Sensor @ 1.0.6
+|-- Adafruit SGP40 Sensor @ 1.1.0
+|-- Adafruit VEML7700 Library @ 1.0.0
+|-- Adafruit seesaw Library @ 1.3.1
+|-- ESP8266Audio @ 1.9.5
+|-- BME8563
+|-- EEPROM 24C128_256_521
+|-- FFat @ 3.3.2
+|-- FS @ 3.3.2
+|-- FastCRC @ 1.44
+|-- I2Cdevlib-Core
+|-- IniFile @ 1.3.0+Infinitek
+|-- InfinitekLList @ 1.0
+|-- LibTeleinfo @ 1.1.7
+|-- MPU6050 I2C
+|-- Mutichannel_Gas_Sensor @ 0.0.1
+|-- NTP Library
+|-- OpenTherm Library @ 1.1.5
+|-- Process_control @ 1.0.0
+|-- SPL06-007 @ 0.1.0
+|-- ScioSense ENS16x @ 8.0.0
+|-- ScioSense ENS210 @ 3.0.0
+|-- Sensirion I2C SGP41 @ 0.1.0
+|-- SevenSegmentTM1637 @ 1.1.0
+|-- UdpListener @ 1.0
+|-- Unishox (De)Compressor @ 1.0
+|-- VL53L0X @ 1.0.2
+|-- VL53L1X @ 1.0.1
+|-- TLS mini client derived from Arduino @ 1.0
+|-- headers
+|-- esp_wireguard_Infinitek @ 0.4.2
+|-- WebServer @ 3.3.2
+|-- ams @ 1.0
+|-- arduino-mcp2515-1.0.1
+|-- A4988_Stepper @ 0.0.1
+|-- Adafruit Fingerprint Sensor Library @ 2.1.0
+|-- Adafruit GFX Library @ 1.5.6
+|-- Adafruit LED Backpack Library @ 1.1.6
+|-- ArduinoOTA @ 3.3.2
+|-- DNSServer @ 3.3.2
+|-- DS2480 Library @ 0.1.0
+|-- ESP8266SAM @ 1.0.1
+|-- ESPFtpServer @ 0.1.0
+|-- ESPmDNS @ 3.3.2
+|-- Ethernet @ 3.3.2
+|-- FT5206_Library @ 1.0.0
+|-- FrogmoreScd30
+|-- FrogmoreScd40
+|-- GT911
+|-- IRremoteESP8266 @ 2.8.6
+|-- InfinitekModbus @ 3.6.0
+|-- InfinitekSerial @ 3.7.0
+|-- JSMN JSON parser customized and optimized for ESP8266 and Infinitek @ 1.0
+|-- KeeloqLib @ 1.1
+|-- LOLIN_HP303B @ 1.0.0
+|-- LedControl @ 1.0.6
+|-- LinkedList
+|-- LiquidCrystal_I2C
+|-- LittleFS @ 3.3.2
+|-- LoRa @ 0.8.0
+|-- MFRC522 @ 1.4.7
+|-- MLX90640
+|-- MPU_accel
+|-- BlueRobotics_MS5837
+|-- NewPing @ 1.9.1
+|-- PubSubClient @ 2.8
+|-- QuickEspNow @ 0.8.1
+|-- RA8876 @ 1.0.2
+|-- rc-switch @ 1.0.0
+|-- RF24 @ 1.3.3
+|-- RadioLib @ 6.4.2
+|-- Ext-printf @ 1.0
+|-- SD @ 3.3.2
+|-- SD_MMC @ 3.3.2
+|-- SPI @ 3.3.2
+|-- Sensirion I2C SEN5X @ 0.2.0
+|-- TM1638plus @ 1.7.0
+|-- Ticker @ 3.3.2
+|-- Joba_Tsl2561 @ 2.0.10
+|-- WiFiHelper @ 1.0.0
+|-- WiFi @ 3.3.2
+|-- Wire @ 3.3.2
+|-- XPT2046_Touchscreen
+|-- base64 @ 1.1.1
+|-- Waveshare esp 2.9 inch e-paper display driver @ 1.0
+|-- Waveshare esp 4.2 inch e-paper display driver @ 1.0
+|-- Display renderer @ 1.0
+|-- ESP KNX IP Library @ 0.5.2
+|-- HPMA115S0 Arduino Library @ 1.0.0
+|-- mp3_shine_esp32 @ 1.0.0
+|-- BearSSL @ 0.6
+|-- universal display Library @ 0.1
+Building in release mode
+Retrieved `.pio/build/esp32dev/lib203/Wire/Wire.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4b4/SPI/SPI.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib2a6/Adafruit_BusIO/Adafruit_BusIO_Register.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib2a6/Adafruit_BusIO/Adafruit_I2CDevice.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib2a6/Adafruit_BusIO/Adafruit_SPIDevice.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libb8f/Adafruit Unified Sensor/Adafruit_Sensor.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libea1/Adafruit BME280 Library/Adafruit_BME280.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libd49/Adafruit BMP280 Library/Adafruit_BMP280.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libaf0/Adafruit BME680 Library/Adafruit_BME680.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libaf0/Adafruit BME680 Library/bme68x.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib8d7/Adafruit SGP30 Sensor/Adafruit_SGP30.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libd52/Adafruit CCS811 Library/Adafruit_CCS811.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib3fa/Adafruit SHT31 Library/Adafruit_SHT31.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib087/Adafruit SHT4x Library/Adafruit_SHT4x.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib3aa/MH-Z19/MHZ19.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib572/PMS Library/PMS.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libc9a/OneWire/OneWire.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib96d/DallasTemperature/DallasTemperature.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib50f/Adafruit Si7021 Library/Adafruit_Si7021.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libb36/Adafruit HTU21DF Library/Adafruit_HTU21DF.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib54e/BH1750/BH1750.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib0ff/Adafruit TSL2591 Library/Adafruit_TSL2591.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib14b/SparkFun APDS9960 RGB and Gesture Sensor/SparkFun_APDS9960.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib655/Max44009/Max44009.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libcaa/Adafruit AS7341/Adafruit_AS7341.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib37f/ld2410/ld2410.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib2a1/HLW8012/HLW8012.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib063/PZEM004T/PZEM004T.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib066/INA226/INA226.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib559/ACS712/ACS712.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libfdc/HX711/HX711.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libb6c/Adafruit BNO055/Adafruit_BNO055.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libc5c/Adafruit ADS1X15/Adafruit_ADS1X15.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/liba61/Nova Fitness Sds dust sensors library/SdsDustSensor.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/liba61/Nova Fitness Sds dust sensors library/SdsDustSensorResults.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libd56/Adafruit_MAX31865-infinitek-1.1.0/Adafruit_MAX31865.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib0c5/Adafruit_MCP9808_infinitek/Adafruit_MCP9808.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib0e6/Adafruit_PM25AQI-1.0.6/Adafruit_PM25AQI.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libe6f/Adafruit_SGP40-1.1.0/Adafruit_SGP40.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libe6f/Adafruit_SGP40-1.1.0/sensirion_voc_algorithm.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib9c0/Adafruit_VEML7700/Adafruit_VEML7700.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libdc3/Adafruit_seesaw_soilsensor_1.3.1/Adafruit_seesaw.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf4e/FS/FS.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf4e/FS/vfs_api.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkClient.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkEvents.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkInterface.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkManager.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkServer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib4d5/Network/NetworkUdp.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib856/HTTPClient/HTTPClient.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/AP.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/STA.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFi.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFiAP.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFiGeneric.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFiMulti.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFiSTA.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib030/WiFi/WiFiScan.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib8e8/SD/SD.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib8e8/SD/sd_diskio.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib8e8/SD/sd_diskio_crc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceBuffer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceFS.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceFunction.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceHTTPStream.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceICYStream.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceID3.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourcePROGMEM.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceSD.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceSPIRAMBuffer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileSourceSTDIO.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioFileStream.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorAAC.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorFLAC.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorMIDI.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorMOD.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorMP3.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorMP3a.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorOpus.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorRTTTL.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorTalkie.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioGeneratorWAV.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioLogger.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputBuffer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputFilterBiquad.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputFilterDecimate.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputI2S.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputI2SNoDAC.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputMixer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputSPDIF.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputSTDIO.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputSerialWAV.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/AudioOutputULP.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/driver/SinglePinI2SDriver.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/bitmath.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/bitreader.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/cpu.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/crc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/fixed.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/float.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/format.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/lpc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/md5.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/memory.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/stream_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libflac/window.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/aacdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/aactabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/bitstream.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/buffers.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/dct4.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/decelmnt.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/dequant.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/fft.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/filefmt.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/huffman.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/hufftabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/imdct.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/noiseless.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/pns.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbr.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrfft.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrfreq.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrhfadj.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrhfgen.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrhuff.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrimdct.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrmath.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrqmf.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrside.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/sbrtabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/stproc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/tns.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-aac/trigtabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/bitstream.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/buffers.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/dct32.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/dequant.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/dqchan.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/huffman.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/hufftabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/imdct.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/mp3dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/mp3tabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/polyphase.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/scalfact.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/stproc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/subband.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libhelix-mp3/trigtabs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/bit.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/fixed.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/frame.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/huffman.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/layer3.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/stream.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/synth.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/timer.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libmad/version.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libogg/bitwise.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libogg/framing.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/bands.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/celt.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/celt_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/celt_encoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/celt_lpc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/cwrs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/entcode.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/entdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/entenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/kiss_fft.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/laplace.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/mathops.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/mdct.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/modes.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/pitch.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/quant_bands.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/rate.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/celt/vq.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/mapping_matrix.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_encoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_multistream.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_multistream_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_multistream_encoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_projection_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/opus_projection_encoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/repacketizer.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/A2NLSF.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/CNG.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/HP_variable_cutoff.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/LPC_analysis_filter.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/LPC_fit.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/LPC_inv_pred_gain.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/LP_variable_cutoff.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF2A.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_VQ.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_VQ_weights_laroia.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_decode.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_del_dec_quant.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_encode.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_stabilize.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NLSF_unpack.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NSQ.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/NSQ_del_dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/PLC.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/VAD.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/VQ_WMat_EC.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/ana_filt_bank_1.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/biquad_alt.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/bwexpander.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/bwexpander_32.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/check_control_input.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/code_signs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/control_SNR.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/control_audio_bandwidth.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/control_codec.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/debug.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/dec_API.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_core.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_frame.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_indices.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_parameters.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_pitch.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decode_pulses.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/decoder_set_fs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/enc_API.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/encode_indices.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/encode_pulses.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/LTP_analysis_filter_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/LTP_scale_ctrl_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/apply_sine_window_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/autocorr_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/burg_modified_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/corrMatrix_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/encode_frame_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/find_LPC_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/find_LTP_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/find_pitch_lags_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/find_pred_coefs_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/k2a_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/k2a_Q16_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/noise_shape_analysis_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/pitch_analysis_core_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/process_gains_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/regularize_correlations_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/residual_energy16_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/residual_energy_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/schur64_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/schur_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/vector_ops_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/fixed/warped_autocorrelation_FIX.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/gain_quant.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/init_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/init_encoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/inner_prod_aligned.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/interpolate.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/lin2log.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/log2lin.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/pitch_est_tables.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/process_NLSFs.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/quant_LTP_gains.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_down2.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_down2_3.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_private_AR2.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_private_IIR_FIR.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_private_down_FIR.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_private_up2_HQ.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/resampler_rom.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/shell_coder.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/sigm_Q15.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/sort.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_LR_to_MS.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_MS_to_LR.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_decode_pred.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_encode_pred.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_find_predictor.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/stereo_quant_pred.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/sum_sqr_shift.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/table_LSF_cos.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_LTP.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_NLSF_CB_NB_MB.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_NLSF_CB_WB.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_gain.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_other.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_pitch_lag.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libopus/silk/tables_pulses_per_block.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libwebm/mkvmuxer/mkvmuxer.cc.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libwebm/mkvmuxer/mkvmuxerutil.cc.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libwebm/mkvmuxer/mkvwriter.cc.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/libwebm/mkvparser/mkvparser.cc.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/opusfile/info.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/opusfile/internal.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/opusfile/opusfile.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib7e7/ESP8266Audio/opusfile/stream.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib8bc/BM8563/BM8563.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib87e/AT24C256_512/Eeprom24C128_256.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib87e/AT24C256_512/Eeprom24C512.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib77b/FFat/FFat.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib420/FastCRC/FastCRChw.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib420/FastCRC/FastCRCsw.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib21c/I2Cdevlib-Core/I2Cdev.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib099/base64-1.1.1/base64.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib87c/IniFile-infinitek/IniFile.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libdba/LibTeleinfo/LibTeleinfo.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libc8a/I2Cdevlib-MPU6050/MPU6050.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib637/Mutichannel_Gas_Sensor/MutichannelGasSensor.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libac8/ArduinoNTPd/NTPPacket.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libac8/ArduinoNTPd/NTPServer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libd62/OpenTherm/OpenTherm.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib99b/ProcessControl/PID.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib99b/ProcessControl/Timeprop.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libe44/SPL06_007/SPL06-007.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib98c/ScioSense_ENS16x/ScioSense_ENS16x.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib5b6/ScioSense_ENS210/ScioSense_ENS210.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionCrc.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionErrors.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionI2CCommunication.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionI2CTxFrame.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionRxFrame.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionShdlcCommunication.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib971/Sensirion_Core/SensirionShdlcTxFrame.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/liba81/arduino-i2c-sgp41/SensirionI2CSgp4x.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/liba81/arduino-i2c-sgp41/sensirion_gas_index_algorithm.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib6e6/arduino-tm1637/SevenSegmentAsciiMap.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib6e6/arduino-tm1637/SevenSegmentExtended.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib6e6/arduino-tm1637/SevenSegmentFun.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib6e6/arduino-tm1637/SevenSegmentTM1637.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7ff/Unishox-infinitek-1.0/UnishoxStrings.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib7ff/Unishox-infinitek-1.0/unishox.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib1d2/vl53l0x-arduino-1.02/VL53L0X.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/liba67/vl53l1x-arduino-1.01/VL53L1X.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/aead/ccm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/aead/eax.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/aead/gcm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/ccopy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec16be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec16le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec32be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec32le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec64be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/dec64le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc16be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc16le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc32be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc32le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc64be.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/enc64le.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/pemdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/codec/pemenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_all_m15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_c25519_m15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_curve25519.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_default.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_keygen.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_p256_m15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_prime_i15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_pubkey.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_secp256r1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_secp384r1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ec_secp521r1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_atr.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_default_sign_asn1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_default_sign_raw.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_default_vrfy_asn1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_default_vrfy_raw.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_i15_bits.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_i15_sign_asn1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_i15_sign_raw.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_i15_vrfy_asn1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_i15_vrfy_raw.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ec/ecdsa_rta.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/_sha_rom_idf5x.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/dig_oid.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/dig_size.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/ghash_ctmul.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/ghash_ctmul32.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/ghash_ctmul64.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/ghash_pclmul.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/md5.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/md5sha1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/mgf1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/multihash.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/sha1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/sha2big.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/hash/sha2small.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_add.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_bitlen.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_decmod.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_decode.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_decred.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_encode.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_fmont.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_iszero.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_moddiv.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_modpow.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_modpow2.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_montmul.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_mulacc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_muladd.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_ninv15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_reduce.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_rshift.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_sub.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/int/i15_tmont.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/kdf/hkdf.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/kdf/shake.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/mac/hmac.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/mac/hmac_ct.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rand/aesctr_drbg.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rand/hmac_drbg.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rand/sysrng.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_keygen.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_modulus.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_oaep_decrypt.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_oaep_encrypt.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pkcs1_sign.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pkcs1_vrfy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_priv.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_privexp.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pss_sign.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pss_vrfy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pub.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_default_pubexp.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_keygen.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_modulus.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_oaep_decrypt.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_oaep_encrypt.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pkcs1_sign.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pkcs1_vrfy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_priv.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_privexp.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pss_sign.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pss_vrfy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pub.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_i15_pubexp.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_oaep_pad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_oaep_unpad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_pkcs1_sig_pad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_pkcs1_sig_unpad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_pss_sig_pad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_pss_sig_unpad.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/rsa/rsa_ssl_decrypt.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/settings.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/prf.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/prf_md5sha1.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/prf_sha256.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/prf_sha384.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_ccert_single_ec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_ccert_single_rsa.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_client.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_client_default_rsapub.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_client_full.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_aescbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_aesccm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_aesgcm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_chapol.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_descbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_ec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_ecdsa.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_engine_default_rsavrfy.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_hashes.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_hs_client.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_hs_server.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_io.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_keyexport.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_lru.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_rec_cbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_rec_ccm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_rec_chapol.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_rec_gcm.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_scert_single_ec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/ssl/ssl_scert_single_rsa.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_ctr.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_ctrcbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_big_enc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_common.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_ctr.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_ctrcbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct64_enc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_ctr.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_ctrcbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_ct_enc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_ctr.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_ctrcbc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_dec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/aes_small_enc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/chacha20_ct.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/chacha20_sse2.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_ct.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_ct_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_ct_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_support.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_tab.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_tab_cbcdec.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/des_tab_cbcenc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/poly1305_ctmul.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/poly1305_ctmul32.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/poly1305_ctmulq.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/symcipher/poly1305_i15.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/asn1enc.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/encode_ec_pk8der.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/encode_ec_rawder.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/encode_rsa_pk8der.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/encode_rsa_rawder.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/pkey_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/skey_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/x509_decoder.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/x509_knownkey.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/x509_minimal.c.o' from cache
+Retrieved `.pio/build/esp32dev/libd15/bearssl-esp8266/x509/x509_minimal_full.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib1d9/WiFiHelper/WiFiHelper_ESP32.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib1d9/WiFiHelper/WiFiHelper_ESP8266.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib624/tls_mini/StackThunk_light.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib624/tls_mini/WiFiClientSecureLightBearSSL.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/crypto.c.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/crypto/refc/blake2s.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/crypto/refc/chacha20.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/crypto/refc/chacha20poly1305.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/crypto/refc/poly1305-donna.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/esp_wireguard.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/infinitek_crypto.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/wireguard-platform.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/wireguard.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libbf7/esp_wireguard-infinitek/wireguardif.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib84c/Hash/PBKDF2_HMACBuilder.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib84c/Hash/SHA1Builder.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib84c/Hash/SHA2Builder.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib84c/Hash/SHA3Builder.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/Parsing.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/WebServer.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/detail/mimetable.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/middleware/AuthenticationMiddleware.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/middleware/CorsMiddleware.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/middleware/LoggingMiddleware.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib67e/WebServer/middleware/MiddlewareChain.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/Cosem.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/DlmsParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/DsmrParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/GbtParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/GcmParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/HdlcParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/LlcParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/MbusParser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/Time.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/crc.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/han_Parser.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/hexutils.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/libf2b/ams/ntohll_ams.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib8a6/arduino-mcp2515-1.0.1/mcp2515.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib510/A4988_Stepper/A4988_Stepper.cpp.o' from cache
+Compiling .pio/build/esp32dev/lib9f0/infinitekSerial-3.7.0/infinitekSerial.cpp.o
+Compiling .pio/build/esp32dev/lib0a6/Adafruit-Fingerprint-infinitek-2.1.0/Adafruit_Fingerprint.cpp.o
+Retrieved `.pio/build/esp32dev/lib658/Adafruit-GFX-Library-1.5.6-gemu-1.0/Adafruit_GFX.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib658/Adafruit-GFX-Library-1.5.6-gemu-1.0/Adafruit_SPITFT.cpp.o' from cache
+Retrieved `.pio/build/esp32dev/lib658/Adafruit-GFX-Library-1.5.6-gemu-1.0/glcdfont.c.o' from cache
+Retrieved `.pio/build/esp32dev/lib106/Adafruit_LED_Backpack-1.1.6/Adafruit_LEDBackpack.cpp.o' from cache
+lib/default/infinitekSerial-3.7.0/src/infinitekSerial.cpp:25:10: fatal error: gpio.h: No such file or directory
+
+**************************************************************
+* Looking for gpio.h dependency? Check our library registry!
+*
+* CLI  > platformio lib search "header:gpio.h"
+* Web  > https://registry.platformio.org/search?q=header:gpio.h
+*
+**************************************************************
+
+   25 | #include "gpio.h"
+      |          ^~~~~~~~
+compilation terminated.
+*** [.pio/build/esp32dev/lib9f0/infinitekSerial-3.7.0/infinitekSerial.cpp.o] Error 1
+Compiling .pio/build/esp32dev/libd39/Update/HttpsOTAUpdate.cpp.o
+In file included from lib/default/infinitekSerial-3.7.0/src/InfinitekSerial.h:2,
+                 from lib/lib_div/Adafruit-Fingerprint-infinitek-2.1.0/Adafruit_Fingerprint.h:11,
+                 from lib/lib_div/Adafruit-Fingerprint-infinitek-2.1.0/Adafruit_Fingerprint.cpp:29:
+lib/default/infinitekSerial-3.7.0/src/infinitekSerial.h:62:9: error: 'int InfinitekSerial::read(uint8_t*, size_t)' marked 'override', but does not override
+   62 |     int read(uint8_t* buffer, size_t size) override;
+      |         ^~~~
+*** [.pio/build/esp32dev/lib0a6/Adafruit-Fingerprint-infinitek-2.1.0/Adafruit_Fingerprint.cpp.o] Error 1
+========================= [FAILED] Took 57.76 seconds =========================
+
+Environment    Status    Duration
+-------------  --------  ------------
+esp32dev       FAILED    00:00:57.761
+==================== 1 failed, 0 succeeded in 00:00:57.761 ====================

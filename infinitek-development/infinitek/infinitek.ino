@@ -32,6 +32,14 @@
 #include "include/i18n.h"                   // Language support configured by my_user_config.h
 #include "include/infinitek_template.h"       // Hardware configuration
 
+// Disable heavy optional subsystems for ESP32 dev build to resolve dependencies
+#ifdef ESP32
+#undef USE_BERRY
+#undef USE_SERIAL_BRIDGE
+#undef USE_TUYA_MCU
+#undef USE_ENERGY_SENSOR
+#endif
+
 // ------------------------------------------------------------------------------------------
 // If IPv6 is not support by the underlying esp-idf, disable it
 // ------------------------------------------------------------------------------------------
@@ -41,9 +49,12 @@
 
 // Libraries
 #include <WiFiHelper.h>
+#ifdef ESP8266
 #include <ESP8266HTTPClient.h>              // Ota
 #include <ESP8266httpUpdate.h>              // Ota
+#endif  // ESP8266
 #ifdef ESP32
+#include <HTTPClient.h>
 #ifdef USE_TLS
 #include "HTTPUpdateLight.h"                // Ota over HTTPS for ESP32
 #endif  // USE_TLS

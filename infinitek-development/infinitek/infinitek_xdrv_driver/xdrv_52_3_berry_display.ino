@@ -21,7 +21,9 @@
 #ifdef USE_BERRY
 #ifdef USE_DISPLAY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #ifdef USE_UNIVERSAL_DISPLAY
 Renderer *Init_uDisplay(const char *desc);

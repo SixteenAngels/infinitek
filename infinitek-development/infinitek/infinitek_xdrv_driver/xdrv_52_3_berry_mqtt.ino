@@ -21,7 +21,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include "berry.h"
+#endif
 
 // Berry: `Infinitek.publish(topic, payload [, retain:bool, start:int, len:int]) -> nil``
 // is_method is true if called from Infinitek class, false if called from mqtt module
