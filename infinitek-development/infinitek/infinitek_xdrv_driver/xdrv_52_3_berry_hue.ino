@@ -22,7 +22,9 @@
 #ifdef USE_BERRY
 #if defined(USE_EMULATION) && defined(USE_EMULATION_HUE)
 
+#ifdef ESP8266
 #include "berry.h"
+#endif
 
 bool be_hue_status(String* response, uint32_t device_id);
 bool be_hue_status(String* response, uint32_t device_id) {

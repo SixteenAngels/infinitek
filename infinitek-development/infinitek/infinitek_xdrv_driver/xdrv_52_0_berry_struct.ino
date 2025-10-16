@@ -25,8 +25,10 @@
 #endif
 #include <LList.h>
 
+#ifdef ESP8266
 #include "be_mapping.h"
 #include "re1.5.h"
+#endif
 
 #ifdef USE_BERRY_INT64
   #include "be_int64.h"

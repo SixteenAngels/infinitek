@@ -26,7 +26,9 @@
 #include "AudioGeneratorMP3.h"
 #include "AudioFileSourceFS.h"
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 /*********************************************************************************************\
  * AudioOutput class

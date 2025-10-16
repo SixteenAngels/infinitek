@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #if defined(USE_MI_ESP32) && !defined(USE_BLE_ESP32)
 

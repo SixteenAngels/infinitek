@@ -704,7 +704,9 @@
   #define USE_LORA_SX127X                      // Add driver support for LoRa on SX127x based devices like M5Stack LoRa868, RFM95W (+5k code)
   #define USE_LORAWAN_BRIDGE                   // Add support for LoRaWan bridge (+8k code)
 
+#ifdef ESP8266
 #define USE_MHZ19                                // Add support for MH-Z19 CO2 sensor (+2k code)
+#endif
 #define USE_SENSEAIR                             // Add support for SenseAir K30, K70 and S8 CO2 sensor (+2k3 code)
 #define USE_CM110x                               // Add support for CM110x CO2 sensors (+2k7 code)
 #ifndef CO2_LOW

@@ -22,7 +22,9 @@
 #ifdef USE_BERRY
 #ifdef USE_ENERGY_SENSOR
 
+#ifdef ESP8266
 #include "berry.h"
+#endif
 #include "be_func.h"
 #include "be_ctypes.h"
 

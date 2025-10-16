@@ -20,8 +20,8 @@
 #include <Arduino.h>
 #ifdef ESP32
 
-#include "InfinitekLEDPusher.h"
-#include "InfinitekLED.h"
+#include "infinitekLEDPusher.h"
+#include "infinitekLED.h"
 
 // DRAM_ATTR to force in IRAM because we use this in show loop
 static const DRAM_ATTR uint8_t InfinitekLED_CHANNEL_ORDERS[8][3] = {
