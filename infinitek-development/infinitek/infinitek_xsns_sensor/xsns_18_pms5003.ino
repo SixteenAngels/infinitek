@@ -33,7 +33,9 @@
 
 #define XSNS_18             18
 
+#ifdef ESP8266
 #include <InfinitekSerial.h>
+#endif
 
 #ifndef WARMUP_PERIOD
 #define WARMUP_PERIOD 30          // Turn on PMSX003 XX-seconds before read in passive mode
