@@ -1011,7 +1011,7 @@
 
 
 #ifdef ESP32
-#include "Infinitek_configurations_ESP32.h"
+#include "infinitek_configurations_ESP32.h"
 #endif  // ESP32
 
 /*********************************************************************************************\
