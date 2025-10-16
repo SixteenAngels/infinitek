@@ -41,9 +41,12 @@
 
 // Libraries
 #include <WiFiHelper.h>
+#ifdef ESP8266
 #include <ESP8266HTTPClient.h>              // Ota
 #include <ESP8266httpUpdate.h>              // Ota
+#endif  // ESP8266
 #ifdef ESP32
+#include <HTTPClient.h>
 #ifdef USE_TLS
 #include "HTTPUpdateLight.h"                // Ota over HTTPS for ESP32
 #endif  // USE_TLS

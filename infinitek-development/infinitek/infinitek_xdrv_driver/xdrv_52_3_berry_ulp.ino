@@ -19,7 +19,9 @@
 
 #ifdef USE_BERRY
 #ifdef USE_BERRY_ULP
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 #if defined(CONFIG_ULP_COPROC_ENABLED)
 

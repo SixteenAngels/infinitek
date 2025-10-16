@@ -22,7 +22,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include "be_ctypes.h"
 
 /********************************************************************

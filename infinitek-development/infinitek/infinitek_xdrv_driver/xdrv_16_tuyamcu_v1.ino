@@ -59,7 +59,9 @@
 
 #define TUYA_BUFFER_SIZE       256
 
+#ifdef ESP8266
 #include <infinitekSerial.h>
+#endif
 
 InfinitekSerial *TuyaSerial = nullptr;
 

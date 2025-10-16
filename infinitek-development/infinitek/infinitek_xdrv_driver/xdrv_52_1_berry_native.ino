@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include <Wire.h>
 
 const char kTypeError[] PROGMEM = "type_error";

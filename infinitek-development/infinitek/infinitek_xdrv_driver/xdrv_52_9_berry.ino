@@ -22,7 +22,9 @@
 
 #define XDRV_52             52
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 extern "C" {
   #include "be_bytecode.h"
   #include "be_var.h"

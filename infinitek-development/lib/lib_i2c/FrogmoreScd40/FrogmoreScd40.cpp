@@ -25,7 +25,9 @@ SOFTWARE.
 #include <Wire.h>
 #include <math.h>
 #include <stdio.h>
+#ifdef ESP8266
 #include <twi.h>
+#endif
 #include <FrogmoreScd40.h>
 
 // References are made to Sensirion datasheet at 

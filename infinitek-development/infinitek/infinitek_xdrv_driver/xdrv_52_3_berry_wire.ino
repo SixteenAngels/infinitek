@@ -22,7 +22,9 @@
 
 #ifdef USE_I2C
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include <Wire.h>
 // #include <byteswap.h>
 

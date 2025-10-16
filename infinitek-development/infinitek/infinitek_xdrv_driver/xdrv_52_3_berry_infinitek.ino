@@ -20,7 +20,9 @@
 
 #ifdef USE_BERRY
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 #include <Wire.h>
 
 const uint32_t BERRY_MAX_LOGS = 16;   // max number of print output recorded when outside of REPL, used to avoid infinite grow of logs

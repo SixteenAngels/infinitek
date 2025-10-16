@@ -22,7 +22,9 @@
 #ifdef USE_BERRY
 #ifdef USE_BERRY_TCPSERVER
 
+#ifdef ESP8266
 #include <berry.h>
+#endif
 
 // WiFiServerAsync can return either `WiFiClient` (sync) or `AsyncTCPClient` (async)
 //
