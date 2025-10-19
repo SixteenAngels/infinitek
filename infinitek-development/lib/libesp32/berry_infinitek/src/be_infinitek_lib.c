@@ -75,7 +75,7 @@ BE_FUNC_CTYPE_DECLARE(be_Infinitek_version, "i", "-");
 extern bbool BerryBECLoader(const char * url);
 BE_FUNC_CTYPE_DECLARE(BerryBECLoader, "b", "s")
 
-#include "solidify/solidified_Infinitek_class.h"
+#include "solidify/solidified_infinitek_class.h"
 #include "solidify/solidified_rule_matcher.h"
 #include "solidify/solidified_trigger_class.h"
 
