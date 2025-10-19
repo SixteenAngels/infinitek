@@ -485,11 +485,14 @@ LList<char*> backlog;                       // Command backlog implemented with 
 
 #ifdef ESP32
 // Wrap optional esp_gpio_reserve include for cores that provide it (IDF 5.3+)
-#if __has_include("esp_private/esp_gpio_reserve.h")
-#include "esp_private/esp_gpio_reserve.h"
-#define HAVE_ESP_GPIO_RESERVE 1
-#else
-#define HAVE_ESP_GPIO_RESERVE 0
+#ifdef __has_include
+  #if __has_include("esp_private/esp_gpio_reserve.h")
+    #include "esp_private/esp_gpio_reserve.h"
+    #define HAVE_ESP_GPIO_RESERVE 1
+  #endif
+#endif
+#ifndef HAVE_ESP_GPIO_RESERVE
+  #define HAVE_ESP_GPIO_RESERVE 0
 #endif
 #endif  // ESP32
 
