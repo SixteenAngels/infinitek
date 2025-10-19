@@ -7,6 +7,8 @@
 ********************************************************************/
 #include "berry.h"
 #include "../../berry_custom/src/modules.h"
+/* Ensure Infinitek class symbol is declared for table initializers */
+extern const struct bclass be_class_Infinitek;
 // Ensure native classes are declared via generated headers already available
 
 /* this file contains the declaration of the module table. */
