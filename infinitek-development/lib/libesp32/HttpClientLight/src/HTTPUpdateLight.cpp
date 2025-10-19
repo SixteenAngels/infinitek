@@ -77,7 +77,7 @@ HTTPUpdateLight::~HTTPUpdateLight(void)
 //     return handleUpdate(http, currentVersion, true);
 // }
 
-HTTPUpdateResult HTTPUpdateLight::update(HTTPClientLight& httpClient,
+t_httpUpdate_return HTTPUpdateLight::update(HTTPClientLight& httpClient,
         const String& currentVersion)
 {
     return handleUpdate(httpClient, currentVersion, false);
@@ -184,10 +184,10 @@ extern String getSketchSHA256();
  * @param currentVersion const char *
  * @return HTTPUpdateResult
  */
-HTTPUpdateResult HTTPUpdateLight::handleUpdate(HTTPClientLight& http, const String& currentVersion, bool spiffs)
+t_httpUpdate_return HTTPUpdateLight::handleUpdate(HTTPClientLight& http, const String& currentVersion, bool spiffs)
 {
 
-    HTTPUpdateResult ret = HTTP_UPDATE_FAILED;
+    t_httpUpdate_return ret = HTTP_UPDATE_FAILED;
 
     // use HTTP/1.0 for update since the update handler not support any transfer Encoding
     http.useHTTP10(true);
