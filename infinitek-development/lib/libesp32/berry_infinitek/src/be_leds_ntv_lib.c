@@ -7,7 +7,11 @@
 
 #ifdef USE_WS2812
 
+#if __has_include("InfinitekLED.h")
 #include "InfinitekLED.h"
+#else
+#include "infinitekLED.h"
+#endif
 
 extern int be_Infinitekled_call_native(bvm *vm);
 extern int be_leds_blend_color(bvm *vm);

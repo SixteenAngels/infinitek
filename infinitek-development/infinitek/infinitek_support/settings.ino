@@ -190,7 +190,11 @@ bool RtcRebootValid(void) {
 extern "C" {
 #include "spi_flash.h"
 #ifdef ESP32
+#if __has_include("esp_spi_flash.h")
+#include "esp_spi_flash.h"
+#else
 #include "spi_flash_mmap.h"
+#endif
 #endif  // ESP32
 }
 

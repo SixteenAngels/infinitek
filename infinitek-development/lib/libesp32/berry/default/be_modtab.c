@@ -7,6 +7,9 @@
 ********************************************************************/
 #include "berry.h"
 #include "../../berry_custom/src/modules.h"
+/* Ensure Infinitek class symbol is declared for table initializers */
+extern const struct bclass be_class_Infinitek;
+// Ensure native classes are declared via generated headers already available
 
 /* this file contains the declaration of the module table. */
 
@@ -243,7 +246,10 @@ BERRY_LOCAL const bntvmodule_t* const be_module_table[] = {
 
 be_extern_native_class(dyn);
 be_extern_native_class(sortedmap);
-be_extern_native_class(Infinitek);
+#ifndef be_class_Infinitek
+#define be_class_Infinitek be_class_Infinitek  /* hint for include guards */
+#include "../../berry_infinitek/src/solidify/solidified_infinitek_class.h"
+#endif
 be_extern_native_class(Trigger);
 be_extern_native_class(Driver);
 be_extern_native_class(ctypes_bytes);

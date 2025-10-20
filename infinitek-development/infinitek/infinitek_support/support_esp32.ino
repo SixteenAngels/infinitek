@@ -225,7 +225,11 @@ void NvsInfo(void) {
 
 // See Esp.cpp
 #include "Esp.h"
+#if __has_include("esp_spi_flash.h")
+#include "esp_spi_flash.h"
+#else
 #include "spi_flash_mmap.h"
+#endif
 #include <memory>
 #include <soc/soc.h>
 #include <soc/efuse_reg.h>

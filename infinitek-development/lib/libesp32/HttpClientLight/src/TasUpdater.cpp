@@ -1,7 +1,11 @@
 #include "TasUpdate.h"
 #include "Arduino.h"
 #if ESP_IDF_VERSION_MAJOR >= 5
+#if __has_include("esp_spi_flash.h")
+#include "esp_spi_flash.h"
+#else
 #include "spi_flash_mmap.h"
+#endif
 #else
 #include "esp_spi_flash.h"
 #endif

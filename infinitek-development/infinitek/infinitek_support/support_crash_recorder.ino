@@ -171,8 +171,14 @@ void CrashDumpClear(void)
 #else
 #include "freertos/xtensa_api.h"
 #endif
+#if __has_include("esp_debug_helpers.h")
 #include "esp_debug_helpers.h"
+#endif
+#if __has_include("esp_cpu_utils.h")
 #include "esp_cpu_utils.h"
+#else
+#include "esp_private/panic_internal.h"
+#endif
 extern "C" {
   // esp-idf 3.x
   void __real_panicHandler(XtExcFrame *frame);

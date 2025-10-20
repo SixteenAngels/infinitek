@@ -484,8 +484,16 @@ LList<char*> backlog;                       // Command backlog implemented with 
 \*********************************************************************************************/
 
 #ifdef ESP32
-// IDF5.3 fix esp_gpio_reserve used in init PSRAM. Needed by Infinitek.ino esp_gpio_revoke
-#include "esp_private/esp_gpio_reserve.h"
+// Wrap optional esp_gpio_reserve include for cores that provide it (IDF 5.3+)
+#ifdef __has_include
+  #if __has_include("esp_private/esp_gpio_reserve.h")
+    #include "esp_private/esp_gpio_reserve.h"
+    #define HAVE_ESP_GPIO_RESERVE 1
+  #endif
+#endif
+#ifndef HAVE_ESP_GPIO_RESERVE
+  #define HAVE_ESP_GPIO_RESERVE 0
+#endif
 #endif  // ESP32
 
 void setup(void) {
@@ -506,8 +514,10 @@ void setup(void) {
     if (pkg_version <= 3) {         // D0WD, S0WD, D2WD
       gpio_reset_pin((gpio_num_t)CONFIG_D0WD_PSRAM_CS_IO);
       gpio_reset_pin((gpio_num_t)CONFIG_D0WD_PSRAM_CLK_IO);
-      // IDF5.3 fix esp_gpio_reserve used in init PSRAM
+      // Revoke reserved pins if supported by current core
+#if defined(HAVE_ESP_GPIO_RESERVE) && HAVE_ESP_GPIO_RESERVE
       esp_gpio_revoke(BIT64(CONFIG_D0WD_PSRAM_CS_IO) | BIT64(CONFIG_D0WD_PSRAM_CLK_IO));
+#endif
     }
   }
 #endif  // CORE32SOLO1
