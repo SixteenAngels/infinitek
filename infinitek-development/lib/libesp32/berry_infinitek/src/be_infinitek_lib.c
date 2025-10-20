@@ -79,9 +79,7 @@ BE_FUNC_CTYPE_DECLARE(BerryBECLoader, "b", "s")
 #include "solidify/solidified_rule_matcher.h"
 #include "solidify/solidified_trigger_class.h"
 
-#ifndef be_class_Infinitek
-#include "be_fixed_be_class_Infinitek.h"
-#endif
+/* Class definition for Infinitek is provided by solidified_infinitek_class.h only */
 
 /* @const_object_info_begin
 class be_class_Infinitek (scope: global, name: Infinitek) {
